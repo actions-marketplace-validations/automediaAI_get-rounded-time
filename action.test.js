@@ -3,7 +3,8 @@ const mockMoment = {
     format: jest.fn(),
     toISOString: jest.fn(),
     toString: jest.fn(),
-    toArray: jest.fn()
+    toArray: jest.fn(),
+    duration: jest.fn()
 };
 jest.doMock('moment', () => () => mockMoment);
 

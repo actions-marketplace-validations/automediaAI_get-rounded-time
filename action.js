@@ -5,8 +5,16 @@ function action () {
     try {
         const utcOffset = core.getInput('utcOffset', { required: false });
         const format = core.getInput('format', { required: false });
+        const interval = core.getInput('interval', { required: false });
+        const intervalType = core.getInput('intervalType', { required: false });
+        const method = core.getInput('method', { required: false });
 
         const time = moment().utcOffset(utcOffset);
+
+        if (interval && intervalType && +interval > 0) {
+            const momentDuration = moment().duration(parseInt(interval), intervalType);
+            time = moment(Math[method]((+time) / (+momentDuration)) * (+momentDuration));
+        }
 
         core.setOutput("time", time.toISOString());
         core.setOutput("ISOTime", time.toISOString());
