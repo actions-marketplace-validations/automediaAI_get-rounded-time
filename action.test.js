@@ -62,7 +62,7 @@ describe("action", () => {
         mockCore.getInput.mockReturnValueOnce('###');
         mockCore.getInput.mockReturnValueOnce('30');
         mockCore.getInput.mockReturnValueOnce('minutes');
-        mockCore.getInput.mockReturnValueOnce('ceil');
+        mockCore.getInput.mockReturnValueOnce(null);
         action();
         expect(mockMoment.utcOffset).toHaveBeenCalledWith('###');
         expect(mockMoment.duration).toHaveBeenCalledWith(30, 'minutes');
