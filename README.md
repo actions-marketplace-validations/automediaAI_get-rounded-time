@@ -1,8 +1,8 @@
-[![Test the action workflow](https://github.com/1466587594/get-current-time/workflows/Test%20the%20action/badge.svg)](https://github.com/1466587594/get-current-time/actions?query=workflow:"Test+the+action")
-[![codecov](https://codecov.io/gh/1466587594/get-current-time/branch/test/graph/badge.svg)](https://codecov.io/gh/1466587594/get-current-time/branch/test)
-[![GitHub release](https://img.shields.io/github/release/1466587594/get-current-time.svg)](https://github.com/1466587594/get-current-time/releases/latest)
+[![Test the action workflow](https://github.com/automediaAI/get-rounded-time/workflows/Test%20the%20action/badge.svg)](https://github.com/automediaAI/get-rounded-time/actions?query=workflow:"Test+the+action")
+[![codecov](https://codecov.io/gh/automediaAI/get-rounded-time/branch/master/graph/badge.svg)](https://codecov.io/gh/automediaAI/get-rounded-time/branch/master)
+[![GitHub release](https://img.shields.io/github/release/automediaAI/get-rounded-time.svg)](https://github.com/automediaAI/get-rounded-time/releases/latest)
 [![GitHub marketplace](https://img.shields.io/badge/marketplace-get--current--time-blue?logo=github)](https://github.com/marketplace/actions/get-current-time)
-[![](https://img.shields.io/github/contributors/1466587594/get-current-time.svg)](https://github.com/1466587594/get-current-time/graphs/contributors)
+[![](https://img.shields.io/github/contributors/automediaAI/get-rounded-time.svg)](https://github.com/automediaAI/get-rounded-time/graphs/contributors)
 
 # Get Current Time Github Action
 
@@ -17,6 +17,18 @@ Time format to use - using [MomemtJS format syntax](https://momentjs.com/docs/#/
 ### `utcOffset`
 
 UTC offset to use - using [MomemtJS utcOffset syntax](https://momentjs.com/docs/#/manipulating/utc-offset/) - optional
+
+### `interval`
+
+Interval by which to round off the time - 5, 10, 15, 30 etc - optional
+
+### `intervalType`
+
+Type of Interval - minutes, hours, seconds - Refer to moment.duration docs for all available formats. - optional
+
+### `method`
+
+Rounding method, floor, ceil .... (It supports all the round methods available in NodeJS Math package) - optional
 
 ## Outputs
 
@@ -45,11 +57,14 @@ Digital outputs, just as names
 ```yaml
 steps:
   - name: Get current time
-    uses: 1466587594/get-current-time@v2
+    uses: automediaAI/get-rounded-time@v2
     id: current-time
     with:
       format: YYYYMMDD-HH
       utcOffset: "+08:00"
+      interval: 15
+      intervalType: minutes
+      method: ceil
   - name: Use current time
     env:
       TIME: "${{ steps.current-time.outputs.time }}"
