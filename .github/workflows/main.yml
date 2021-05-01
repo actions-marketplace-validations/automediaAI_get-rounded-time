@@ -10,20 +10,20 @@ jobs:
   test_compiled_file:
     runs-on: ubuntu-latest
     steps:
-      - name: Get current time
+      - name: Get rounded time
         uses: automediaAI/get-rounded-time@test
-        id: current-time
+        id: rounded-time
         with:
           format: YYYYMMDD-HH
           utcOffset: "+08:00"
 
-      - name: Use current time
+      - name: Use rounded time
         env:
-          TIME: "${{ steps.current-time.outputs.time }}"
-          R_TIME: "${{ steps.current-time.outputs.readableTime }}"
-          F_TIME: "${{ steps.current-time.outputs.formattedTime }}"
-          YEAR: "${{ steps.current-time.outputs.year }}"
-          DAY: "${{ steps.current-time.outputs.day }}"
+          TIME: "${{ steps.rounded-time.outputs.time }}"
+          R_TIME: "${{ steps.rounded-time.outputs.readableTime }}"
+          F_TIME: "${{ steps.rounded-time.outputs.formattedTime }}"
+          YEAR: "${{ steps.rounded-time.outputs.year }}"
+          DAY: "${{ steps.rounded-time.outputs.day }}"
         run: echo $TIME $R_TIME $F_TIME $YEAR $DAY
 
   generate_coverage_report:

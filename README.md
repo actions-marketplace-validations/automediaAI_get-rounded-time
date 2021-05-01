@@ -1,12 +1,12 @@
 [![Test the action workflow](https://github.com/automediaAI/get-rounded-time/workflows/Test%20the%20action/badge.svg)](https://github.com/automediaAI/get-rounded-time/actions?query=workflow:"Test+the+action")
 [![codecov](https://codecov.io/gh/automediaAI/get-rounded-time/branch/master/graph/badge.svg)](https://codecov.io/gh/automediaAI/get-rounded-time/branch/master)
 [![GitHub release](https://img.shields.io/github/release/automediaAI/get-rounded-time.svg)](https://github.com/automediaAI/get-rounded-time/releases/latest)
-[![GitHub marketplace](https://img.shields.io/badge/marketplace-get--current--time-blue?logo=github)](https://github.com/marketplace/actions/get-current-time)
+[![GitHub marketplace](https://img.shields.io/badge/marketplace-get--rounded--time-blue?logo=github)](https://github.com/marketplace/actions/get-rounded-time)
 [![](https://img.shields.io/github/contributors/automediaAI/get-rounded-time.svg)](https://github.com/automediaAI/get-rounded-time/graphs/contributors)
 
-# Get Current Time Github Action
+# Get Rounded Time Github Action
 
-This action sets the current ISO8601 time to the `time` output and also provides `readableTime`, `formattedTime`, and many more digital outputs like `year`, `day`, `second`, etc. Useful for setting build times in subsequent steps, renaming your artifact, or keeping the same recorded time for the entire workflow.
+This action sets the current ISO8601 time to the `time` output and also provides `readableTime`, `formattedTime`, and many more digital outputs like `year`, `day`, `second`, etc. Useful for setting build times in subsequent steps, renaming your artifact, or keeping the same recorded time for the entire workflow. If you specify an interval and interval type, it'll round off the time to that value. Essentially, it integrates the Get Current Time Action with [this time rounding off code.](https://github.com/arshadkazmi42/datetime-round)
 
 ## Inputs
 
@@ -56,22 +56,22 @@ Digital outputs, just as names
 
 ```yaml
 steps:
-  - name: Get current time
+  - name: Get rounded time
     uses: automediaAI/get-rounded-time@v2
-    id: current-time
+    id: rounded-time
     with:
       format: YYYYMMDD-HH
       utcOffset: "+08:00"
       interval: 15
       intervalType: minutes
       method: ceil
-  - name: Use current time
+  - name: Use rounded time
     env:
-      TIME: "${{ steps.current-time.outputs.time }}"
-      R_TIME: "${{ steps.current-time.outputs.readableTime }}"
-      F_TIME: "${{ steps.current-time.outputs.formattedTime }}"
-      YEAR: "${{ steps.current-time.outputs.year }}"
-      DAY: "${{ steps.current-time.outputs.day }}"
+      TIME: "${{ steps.rounded-time.outputs.time }}"
+      R_TIME: "${{ steps.rounded-time.outputs.readableTime }}"
+      F_TIME: "${{ steps.rounded-time.outputs.formattedTime }}"
+      YEAR: "${{ steps.rounded-time.outputs.year }}"
+      DAY: "${{ steps.rounded-time.outputs.day }}"
     run: echo $TIME $R_TIME $F_TIME $YEAR $DAY
 ```
 

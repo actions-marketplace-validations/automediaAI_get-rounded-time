@@ -1,6 +1,6 @@
-name: "Get Current Time"
-author: "Gerred Dillon <hello@gerred.org>, Shahar Frank <srfrnk@gmail.com>, Joshua Chan <josStorer@outlook.com>"
-description: "Get the current time with `format` and `utcOffset`"
+name: "Get Rounded Time"
+author: "Gerred Dillon <hello@gerred.org>, Shahar Frank <srfrnk@gmail.com>, Joshua Chan <josStorer@outlook.com>, Nitin Khanna <mail@nitinkhanna.com>"
+description: "Get the current time rounded to the closest interval with `format`, `utcOffset`, `interval` info"
 branding:
   icon: clock
   color: blue
@@ -10,6 +10,15 @@ inputs:
     required: false
   utcOffset:
     description: "UTC offset to use using [MomemtJS utcOffset syntax](https://momentjs.com/docs/#/manipulating/utc-offset/)"
+    required: false
+  interval:
+    description: "Interval by which to round off the time - 5, 10, 15, 30 etc"
+    required: false
+  intervalType:
+    description: "Type of Interval - minutes, hours, seconds - Refer to moment.duration docs for all available formats."
+    required: false
+  method:
+    description: "Rounding method, floor, ceil (It supports all the round methods available in NodeJS Math package)"
     required: false
 outputs:
   time:
