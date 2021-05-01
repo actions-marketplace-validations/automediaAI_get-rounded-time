@@ -2,10 +2,10 @@ name: Test the action
 on: 
   push:
     branches:
-      - test
+      - master
   pull_request:
     branches:
-      - test
+      - master
 jobs:
   test_compiled_file:
     runs-on: ubuntu-latest

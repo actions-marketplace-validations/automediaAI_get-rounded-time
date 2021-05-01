@@ -56,6 +56,19 @@ describe("action", () => {
         expect(mockMoment.format).toHaveBeenCalledWith('###');
     });
 
+    it("Should pass format inputs", () => {
+        mockCore.getInput.mockReturnValue('###');
+        mockCore.getInput.mockReturnValueOnce('###');
+        mockCore.getInput.mockReturnValueOnce('###');
+        mockCore.getInput.mockReturnValueOnce('30');
+        mockCore.getInput.mockReturnValueOnce('minutes');
+        mockCore.getInput.mockReturnValueOnce('ceil');
+        action();
+        expect(mockMoment.utcOffset).toHaveBeenCalledWith('###');
+        expect(mockMoment.duration).toHaveBeenCalledWith(30, 'minutes');
+        expect(mockMoment.format).toHaveBeenCalledWith('###');
+    });
+
     it("Should throw error", () => {
         mockCore.setOutput = () => { throw new Error('####') }
         action();
