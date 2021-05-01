@@ -4,6 +4,7 @@ description: "Get the current time rounded to the closest interval with `format`
 branding:
   icon: clock
   color: blue
+
 inputs:
   format:
     description: "Time format to use using [MomemtJS format syntax](https://momentjs.com/docs/#/displaying/format/)"
@@ -20,6 +21,7 @@ inputs:
   method:
     description: "Rounding method, floor, ceil (It supports all the round methods available in NodeJS Math package)"
     required: false
+
 outputs:
   time:
     description: "The ISO time this action was run, **not** affected by the parameter `utcOffset`  e.g. '2020-01-01T00:30:15.000Z'"

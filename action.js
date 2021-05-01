@@ -15,7 +15,7 @@ function action () {
             if (!method){
                 method = 'ceil';
             }
-            const momentDuration = moment().duration(parseInt(interval), intervalType);
+            const momentDuration = moment.duration(parseInt(interval), intervalType);
             time = moment(Math[method]((+time) / (+momentDuration)) * (+momentDuration));
         }
 
