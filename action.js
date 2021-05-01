@@ -9,7 +9,7 @@ function action () {
         const intervalType = core.getInput('intervalType', { required: false });
         let method = core.getInput('method', { required: false });
 
-        const time = moment().utcOffset(utcOffset);
+        let time = moment().utcOffset(utcOffset);
 
         if (interval && intervalType && +interval > 0) {
             if (!method){
