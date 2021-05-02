@@ -19,6 +19,7 @@ function action () {
             time = moment(Math[method]((+time) / (+momentDuration)) * (+momentDuration));
         }
 
+        core.setOutput("utcOffset", utcOffset);
         core.setOutput("time", time.toISOString());
         core.setOutput("ISOTime", time.toISOString());
         core.setOutput("readableTime", time.toString());
