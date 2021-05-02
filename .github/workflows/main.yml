@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get rounded time
-        uses: automediaAI/get-rounded-time@2.1.4
+        uses: automediaAI/get-rounded-time@2.1.6
         id: rounded-time
         with:
           format: YYYYMMDD-HH
