@@ -20,6 +20,8 @@ function action () {
         }
 
         core.setOutput("utcOffset", utcOffset);
+        core.setOutput("format", format);
+        core.setOutput("method", method);
         core.setOutput("time", time.toISOString());
         core.setOutput("ISOTime", time.toISOString());
         core.setOutput("readableTime", time.toString());
