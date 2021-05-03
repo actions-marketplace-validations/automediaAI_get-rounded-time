@@ -22,6 +22,7 @@ jobs:
           TIME: "${{ steps.rounded-time.outputs.time }}"
           R_TIME: "${{ steps.rounded-time.outputs.readableTime }}"
           F_TIME: "${{ steps.rounded-time.outputs.formattedTime }}"
+          Fancy_TIME: "${{ steps.rounded-time.outputs.fancyTime }}"
           YEAR: "${{ steps.rounded-time.outputs.year }}"
           DAY: "${{ steps.rounded-time.outputs.day }}"
         run: echo $TIME $R_TIME $F_TIME $YEAR $DAY

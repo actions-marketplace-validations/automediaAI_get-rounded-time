@@ -48,6 +48,10 @@ Human-friendly time - affected by the parameter `utcOffset`  e.g. 'Wed Jan 01 20
 
 The time this action was run - formatted using `format` and `utcOffset` inputs
 
+### `fancyTime`
+
+The time this action was run - formatted 'MMM Do YYYY'
+
 ### `year,month,day,hour,minute,second,millisecond`
 
 Digital outputs, just as names

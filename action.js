@@ -26,6 +26,7 @@ function action () {
         core.setOutput("ISOTime", time.toISOString());
         core.setOutput("readableTime", time.toString());
         core.setOutput("formattedTime", time.format(format));
+        core.setOutput("fancyTime", time.format('MMM Do YYYY'));
 
         let [year, month, day, hour, minute, second, millisecond] = time.toArray();
         month = String(Number(month) + 1);

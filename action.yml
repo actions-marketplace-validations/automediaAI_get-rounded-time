@@ -29,6 +29,8 @@ outputs:
     description: "Human-friendly time - affected by the parameter `utcOffset`  e.g. 'Wed Jan 01 2020 08:30:15 GMT+0800'"
   formattedTime:
     description: "The time this action was run - formatted using `format` and `utcOffset` inputs"
+  fancyTime:
+    description: "The time this action was run - formatted 'MMM Do YYYY'"
   year,month,day,hour,minute,second,millisecond:
     description: "Digital outputs, just as names"
 runs:
